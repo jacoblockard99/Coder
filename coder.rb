@@ -1,5 +1,12 @@
 #!/bin/ruby
 
+class String
+  # Test if a string is alphanumeric
+  def alphanumeric?
+    !match(/\A[a-zA-Z0-9]*\z/).nil?
+  end
+end
+
 # Display a welcome message
 def welcome
   puts "Welcome to the Coder app! Just type in any alphanumeric string and Coder will encrypt it for you!"
