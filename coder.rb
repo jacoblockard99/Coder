@@ -3,6 +3,7 @@
 class String
   # Test if a string is alphanumeric
   def alphanumeric?
+    return false if empty?
     !match(/\A[a-zA-Z0-9]*\z/).nil?
   end
 end
