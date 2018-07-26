@@ -17,7 +17,9 @@ end
 def ask message, error = false
   puts "Please enter letters and numbers only!" if error
   puts message
-  gets
+  input = gets.chomp
+  return input if input.alphanumeric?
+  ask message, true
 end
 
 welcome
