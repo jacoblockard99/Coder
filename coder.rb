@@ -17,7 +17,7 @@ end
 # If the input is not an alphanumeric string then the method will display a warning and request the string again
 def ask message, error = false
   puts "Please enter letters and numbers only!" if error
-  puts message
+  print "#{message} "
   input = gets.chomp
   return input if input.alphanumeric?
   ask message, true
