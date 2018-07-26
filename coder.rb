@@ -23,3 +23,4 @@ def ask message, error = false
 end
 
 welcome
+input = ask "What would you like to encrypt?"
