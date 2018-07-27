@@ -28,6 +28,28 @@ def ask_alphanumeric message, error = false
   return input if input.alphanumeric?
   ask_alphanumeric message, true
 end
+alias request_alphanumeric ask_alphanumeric 
+
+def ask_options message, options = ["yes", "no"], error = false
+  puts opt_msg(options) if error
+  input = ask(message).downcase
+  return input if options.include? input
+  ask_options message, options, true
+end
+alias request_options ask_options
+
+def options_message options
+  message = "Please enter "
+  if options.count < 3
+    message += "either #{options.first} or #{options.last}!"
+  else
+    list = options.join(", ")
+    message += "one of the following: #{list}"
+  end
+  message
+end
+alias opt_msg options_message
 
 welcome
-input = ask_alphanumeric "What would you like to encrypt?"
+puts ask_options "Are you sure?", ["yes", "no", "maybe"]
+#input = ask_alphanumeric "What would you like to encrypt?"
