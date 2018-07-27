@@ -14,14 +14,20 @@ def welcome
 end
 
 # Request the user for a string and return the result
-# If the input is not an alphanumeric string then the method will display a warning and request the string again
-def ask message, error = false
-  puts "Please enter letters and numbers only!" if error
+def ask message
   print "#{message} "
-  input = gets.chomp
+  gets.chomp
+end
+alias request ask
+
+# Request the user for a string and return the result
+# If the input is not an alphanumeric string then the method will display a warning and request the string again
+def ask_alphanumeric message, error = false
+  puts "Please enter letters and numbers only!" if error
+  input = ask message
   return input if input.alphanumeric?
-  ask message, true
+  ask_alphanumeric message, true
 end
 
 welcome
-input = ask "What would you like to encrypt?"
+input = ask_alphanumeric "What would you like to encrypt?"
