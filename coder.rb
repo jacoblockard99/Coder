@@ -32,7 +32,7 @@ alias request_alphanumeric ask_alphanumeric
 
 def ask_options message, options = ["yes", "no"], error = false
   puts opt_msg(options) if error
-  input = ask(message).downcase
+  input = ask("#{message} (#{options.join ", "})").downcase
   return input if options.include? input
   ask_options message, options, true
 end
