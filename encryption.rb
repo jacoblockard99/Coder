@@ -25,3 +25,12 @@ def decrypt_string string, key, strict = false
 end
 alias decrypt decrypt_string
 
+class String
+  def encrypt key, strict = false
+    replace(encrypt_string self, key, strict)
+  end
+
+  def decrypt key, strict = false
+    replace(decrypt_string self, key, strict)
+  end
+end
