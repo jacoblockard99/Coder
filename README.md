@@ -1,7 +1,7 @@
 # Kryptonite
 Welcome to the README for the Kryptonite app!
 
-Kryptonite is a simple terminal based application that encrypts text via the Vigenère cipher. It supports two "modes": relaxed and strict. In relaxed mode, codes are not case-sensitive, punctuation is not encrypted, and keys can only contain letters, numbers, and spaces. In strict mode, ciphertext is case-sensitive, punctuation is encrypted, and keys can contain most punctuation.
+Kryptonite is a simple, terminal based application that encrypts text via the Vigenère cipher. It supports two "modes": relaxed and strict. In relaxed mode, codes are not case-sensitive, punctuation is not encrypted, and keys can only contain letters, numbers, and spaces. In strict mode, ciphertext is case-sensitive, punctuation is encrypted, and keys can contain most punctuation.
 
 To use the application, you will need to have Ruby installed on your computer. Then, you can just download and run the ruby files: `./kryptonite.rb`.
 
