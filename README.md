@@ -16,7 +16,7 @@ If you would like to view a help message pass the `--help` or `-h` flag to the a
 
 To determine whether the app will _encrypt_ or _decrypt_ the text, use either the `--encrypt` or `--decrypt` flag.
 
-To enable strict mode, (case-sensitive, encrypted punctuation, full keys) pass the `--strict` flag. The app will use relaxed mode by default.
+To enable strict mode, (see above) pass the `--strict` flag. The app will use relaxed mode by default.
 
 To specify the text to encrypt or decrypt, pass the `--text` option followed by the text you would like to use. Don't forget to enclose the text in ***single*** quotation marks (double quotations may not work) if the text contains spaces or special characters.
 
