@@ -10,7 +10,7 @@ Commands are given in the following form:
 ```
 ./kryptonite.rb OPTIONS
 ```
-If an option accepts a value type it immediately after the flag.
+If an option accepts a value, type it immediately after the flag.
 
 If you would like to view a help message pass the `--help` or `-h` flag to the app: `./kryptonite.rb -h`.
 
