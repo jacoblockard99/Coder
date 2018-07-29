@@ -14,7 +14,7 @@ If an option accepts a value type it immediately after the flag.
 
 If you would like to view a help message pass the `--help` or `-h` flag to the app: `./kryptonite.rb -h`.
 
-The `--encrypt` and `--decrypt` flags determine whether the app will attempt to **encrypt** or **decrypt** the given text. The default is encrypt.
+To determine whether the app will _encrypt_ or _decrypt_ the text, use either the `--encrypt` or `--decrypt` flag.
 
 To enable strict mode, (case-sensitive, encrypted punctuation, full keys) pass the `--strict` flag. The app will use relaxed mode by default.
 
