@@ -1,5 +1,5 @@
-ALPHABET = [*("a".."z"), *(1..9), " "]
-STRICT_ALPHABET = [*("a".."z"), *("A".."Z"), *(1..9), " ", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "=", "{", "}", "[", "]", "|", "\\", '<', '>', '.', ',', '?', '/']
+ALPHABET = [*("a".."z"), *("1".."9"), " "]
+STRICT_ALPHABET = [*("a".."z"), *("A".."Z"), *("1".."9"), " ", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "=", "{", "}", "[", "]", "|", "\\", '<', '>', '.', ',', '?', '/']
 
 def shift_char char, amt, strict = false
   char.downcase! unless strict
@@ -26,11 +26,11 @@ end
 alias decrypt decrypt_string
 
 class String
-  def encrypt key, strict = false
-    replace(encrypt_string self, key, strict)
+  def encrypt key, strict = false, decrypt = false
+    encrypt_string self, key, strict, decrypt
   end
 
   def decrypt key, strict = false
-    replace(decrypt_string self, key, strict)
+    decrypt_string self, key, strict
   end
 end
