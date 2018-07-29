@@ -6,6 +6,12 @@ Kryptonite is a simple terminal based application that encrypts text via the Vig
 To use the application, you will need to have Ruby installed on your computer. Then, you can just download and run the ruby files: `./kryptonite.rb`.
 
 ## Usage
+Commands are given in the following form:
+```
+./kryptonite.rb OPTIONS
+```
+If an option accepts a value type it immediately after the flag.
+
 If you would like to view a help message pass the `--help` or `-h` flag to the app: `./kryptonite.rb -h`.
 
 The `--encrypt` and `--decrypt` flags determine whether the app will attempt to **encrypt** or **decrypt** the given text. The default is encrypt.
