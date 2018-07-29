@@ -18,6 +18,6 @@ To determine whether the app will _encrypt_ or _decrypt_ the text, use either th
 
 To enable strict mode, (see above) pass the `--strict` flag. The app will use relaxed mode by default.
 
-To specify the text to encrypt or decrypt, pass the `--text` option followed by the text you would like to use. Don't forget to enclose the text in ***single*** quotation marks (double quotations may not work) if the text contains spaces or special characters.
+To specify the text to encrypt, pass the `--text` option followed by the text you want to use. Don't forget to enclose the text in ***single*** quotation marks (double quotations may not work) if the text contains spaces or special characters.
 
 To specify the key with which to encrypt or decrypt the text with, use the `--key` option: `./kryptonite.rb ... --key KEY`. In relaxed mode keys must use letters, numbers, and spaces **only**.
