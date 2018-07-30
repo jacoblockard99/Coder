@@ -1,6 +1,10 @@
-#!/usr/bin/env ruby
-#
-require_relative 'encryption.rb'
+#!/usr/bin/ruby
+
+if File.file?(File.join(File.dirname(__FILE__), 'encryption.rb'))
+  require_relative 'encryption.rb'
+else
+  require '/usr/share/ruby/vendor_ruby/coder/encryption.rb'
+end
 require 'optparse'
 
 options = {

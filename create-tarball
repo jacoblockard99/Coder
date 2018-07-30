@@ -1,0 +1,4 @@
+#!/bin/bash
+cd ~/environment/coder
+tar -zcvf coder-$1.tar.gz -T list.txt
+cp coder-$1.tar.gz ~/rpmbuild/SOURCES/
