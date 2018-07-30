@@ -66,8 +66,10 @@ def check_key k, a
   true
 end
 
+f = options[:file]
 t = options[:text]
-t = File.read(options[:file]) if options[:file]
+t = File.read f if f
+t_display = f ? f : t
 
 k = options[:key]
 e = options[:method] == :encrypt
@@ -87,12 +89,12 @@ e_text = t.encrypt k, a, s, !e
 if e_text.length < 25
   t.clean_newlines
   e_text.clean_newlines
-  line = "-" * (e_text.length+2) + "=" * (e_text.length+1)
+  line = "-" * (t_display.length+2) + "=" * (e_text.length+1)
   puts line
-  puts "#{t} ➜ #{e_text}"
+  puts "#{t_display} ➜ #{e_text}"
   puts line
   puts
-  puts "\"#{t}\" was #{m_text} to \"#{e_text}\" using key: \"#{k}\""
+  puts (f ? "The contents of " : "The text ") + "\"#{t_display}\" was #{m_text} to \"#{e_text}\" using key: \"#{k}\""
 else
   puts
   puts t
