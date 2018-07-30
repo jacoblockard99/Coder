@@ -41,14 +41,6 @@ OptionParser.new do |parser|
   parser.on("-t", "--text TEXT", "The text to encrypt or decrypt") do |v|
     options[:text] = v
   end
-  
-  parser.on("-f", "--file PATH", "Encrypt or decrypt a file instead") do |v|
-    unless File.file? v
-      puts "The path you entered does not exist or is not a file."
-      exit
-    end
-    options[:file] = v
-  end
 
   parser.on("-k", "--key KEY", "Specify a key to use") do |v|
     options[:key] = v
@@ -56,6 +48,14 @@ OptionParser.new do |parser|
 
   parser.on("-s", "--strict", "Keeps capital letters and encrypts punctuation") do
     options[:strict] = true
+  end
+  
+  parser.on("-f", "--file PATH", "Encrypt or decrypt a file instead") do |v|
+    unless File.file? v
+      puts "The path you entered does not exist or is not a file."
+      exit
+    end
+    options[:file] = v
   end
 
   parser.on("-o", "--output PATH", "Specify a file to export the result of the encryption or decryption to") do |v|
