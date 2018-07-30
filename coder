@@ -57,6 +57,14 @@ OptionParser.new do |parser|
   parser.on("-s", "--strict", "Keeps capital letters and encrypts punctuation") do
     options[:strict] = true
   end
+
+  parser.on("-o", "--output PATH", "Specify a file to export the result of the encryption or decryption to") do |v|
+    unless File.file? v
+      puts "The path you entered does not exist or is not a file."
+      exit
+    end
+    options[:output] = v
+  end
 end.parse!
 
 def check_key k, a
