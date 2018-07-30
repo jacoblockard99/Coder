@@ -3,7 +3,7 @@ Welcome to the README for the Coder app!
 
 Coder is a simple, terminal based application that encrypts text via the Vigenère cipher. It supports two "modes": relaxed and strict. In relaxed mode, codes are not case-sensitive, punctuation is not encrypted, and keys can only contain letters, numbers, and spaces. In strict mode, ciphertext is case-sensitive, punctuation is encrypted, and keys can contain most punctuation.
 
-To install the application, please download the RPM file and install it using dnf.
+To install the application, please download the RPM or DEB file from the Releases page and install it.
 ## Usage
 Commands are given in the following form:
 ```
