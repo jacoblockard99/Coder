@@ -10,6 +10,12 @@ else
 end
 require 'optparse'
 
+class String
+  def clean_newlines sub = '[newline]'
+    replace gsub "\n", sub
+  end
+end
+
 options = {
   method: :encrypt,
   text: "example text",
@@ -37,6 +43,10 @@ OptionParser.new do |parser|
   end
   
   parser.on("-f", "--file PATH", "Encrypt or decrypt a file instead") do |v|
+    unless File.file? v
+      puts "The path you entered does not exist or is not a file."
+      exit
+    end
     options[:file] = v
   end
 
@@ -57,6 +67,8 @@ def check_key k, a
 end
 
 t = options[:text]
+t = File.read(options[:file]) if options[:file]
+
 k = options[:key]
 e = options[:method] == :encrypt
 s = options[:strict]
@@ -71,9 +83,11 @@ end
 
 m_text = e ? "encrypted" : "decrypted"
 e_text = t.encrypt k, a, s, !e
-line = "-" * (e_text.length+2) + "=" * (e_text.length+1)
 
 if e_text.length < 25
+  t.clean_newlines
+  e_text.clean_newlines
+  line = "-" * (e_text.length+2) + "=" * (e_text.length+1)
   puts line
   puts "#{t} ➜ #{e_text}"
   puts line
