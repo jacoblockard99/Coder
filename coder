@@ -1,5 +1,8 @@
 #!/usr/bin/ruby
 
+ALPHABET = [*("a".."z"), *("1".."9"), " "]
+STRICT_ALPHABET = [*("a".."z"), *("A".."Z"), *("1".."9"), " ", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "=", "{", "}", "[", "]", "|", "\\", '<', '>', '.', ',', '?', '/']
+
 if File.file?(File.join(File.dirname(__FILE__), 'encryption.rb'))
   require_relative 'encryption.rb'
 else
@@ -46,11 +49,28 @@ OptionParser.new do |parser|
   end
 end.parse!
 
+def check_key k, a
+  k.chars.each do |char|
+    return false unless a.include? char
+  end
+  true
+end
+
 t = options[:text]
 k = options[:key]
 e = options[:method] == :encrypt
+s = options[:strict]
+a = s ? STRICT_ALPHABET : ALPHABET
+
+unless check_key k, a
+  puts "The key that you entered is invalid! Please use only the following characters: "
+  puts a.map {|char| "'#{char}'"}.join(", ") + "."
+  puts "NOTE: If you are trying to use capitals or punctuation, you may want to try strict mode (--strict or -s)."
+  exit
+end
+
 m_text = e ? "encrypted" : "decrypted"
-e_text = t.encrypt k, options[:strict], !e
+e_text = t.encrypt k, a, s, !e
 line = "-" * (e_text.length+2) + "=" * (e_text.length+1)
 
 if e_text.length < 25
