@@ -1,6 +1,5 @@
 #!/bin/ruby
 
-require_relative 'cli_tools.rb'
 require_relative 'encryption.rb'
 require 'optparse'
 
