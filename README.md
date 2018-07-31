@@ -5,7 +5,7 @@ Coder is a simple, terminal based application that encrypts text via the Vigenè
 
 ## Installation
 ### From source
-To install the app from source, download the tarball for the version that you wish to install from the Releases page. Or, if you prefer, you can download the source files directly (coder, encryption.rb, README.md). After unpacking the tarball, place the "coder" file in "/usr/local/bin". Place "encryption.rb" in "/usr/local/share/ruby/vendor_ruby/coder". You should now be able to run the app by using the command `coder`.
+To install the app from source, download the tarball for the version that you wish to install (be sure to download the file from the main github repo, not the Releases page). Or, if you prefer, you can download the source files directly (coder, encryption.rb, README.md). After unpacking the tarball, place the "coder" file in "/usr/local/bin". Place "encryption.rb" in "/usr/local/share/ruby/vendor_ruby/coder". You should now be able to run the app by using the command `coder`.
 
 ### Binary installer
 To install the application from a binary installer, please download either the RPM or DEB file from the Releases page. If there is not a .deb file for a release, you will have to install the app from source.
