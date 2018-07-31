@@ -93,16 +93,11 @@ if e_text_display.length + t_display.length < 50
   line = "-" * (t_display.length+2) + "=" * (e_text_display.length+1)
   puts line
   puts "#{t_display} ➜ #{e_text_display}"
-  puts line
-  puts
+  puts line + "\n"
   puts (f ? "The contents of " : "The text ") + "\"#{t_display}\" was #{m_text} to \"#{e_text_display}\" using key: \"#{k}\""
 else
-  puts
-  puts t_display
-  puts
-  puts
-  puts e_text_display
-  puts
+  puts "\n#{t_display}\n\n"
+  puts e_text_display + "\n"
 end
 
 File.new(o, "w").write e_text if o
