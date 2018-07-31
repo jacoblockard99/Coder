@@ -70,37 +70,38 @@ def check_key k, a
   true
 end
 
-t_display = f ? f : t
-
-e = m == :encrypt
-a = s ? STRICT_ALPHABET : ALPHABET
-
-unless check_key k, a
+def key_error
   puts "The key that you entered is invalid! Please use only the following characters: "
   puts a.map {|char| "'#{char}'"}.join(", ") + "."
   puts "NOTE: If you are trying to use capitals or punctuation, you may want to try strict mode (--strict or -s)."
   exit
 end
 
+t_display = f ? f : t
+e = m == :encrypt
+a = s ? STRICT_ALPHABET : ALPHABET
+
+key_error unless check_key k, a
+
 m_text = e ? "encrypted" : "decrypted"
 e_text = t.encrypt k, a, s, !e
-display_e_text = o ? o : e_text
+e_text_display = o ? o : e_text
 
-if display_e_text.length + t_display.length < 50
+if e_text_display.length + t_display.length < 50
   t_display.clean_newlines
-  display_e_text.clean_newlines
-  line = "-" * (t_display.length+2) + "=" * (display_e_text.length+1)
+  e_text_display.clean_newlines
+  line = "-" * (t_display.length+2) + "=" * (e_text_display.length+1)
   puts line
-  puts "#{t_display} ➜ #{display_e_text}"
+  puts "#{t_display} ➜ #{e_text_display}"
   puts line
   puts
-  puts (f ? "The contents of " : "The text ") + "\"#{t_display}\" was #{m_text} to \"#{display_e_text}\" using key: \"#{k}\""
+  puts (f ? "The contents of " : "The text ") + "\"#{t_display}\" was #{m_text} to \"#{e_text_display}\" using key: \"#{k}\""
 else
   puts
   puts t_display
   puts
   puts
-  puts display_e_text
+  puts e_text_display
   puts
 end
 
