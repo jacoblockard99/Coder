@@ -70,7 +70,7 @@ def check_key k, a
   true
 end
 
-def key_error
+def key_error a
   puts "The key that you entered is invalid! Please use only the following characters: "
   puts a.map {|char| "'#{char}'"}.join(", ") + "."
   puts "NOTE: If you are trying to use capitals or punctuation, you may want to try strict mode (--strict or -s)."
@@ -81,7 +81,7 @@ t_display = f ? f : t
 e = m == :encrypt
 a = s ? STRICT_ALPHABET : ALPHABET
 
-key_error unless check_key k, a
+key_error a unless check_key k, a
 
 m_text = e ? "encrypted" : "decrypted"
 e_text = t.encrypt k, a, s, !e
