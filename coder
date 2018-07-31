@@ -55,6 +55,7 @@ OptionParser.new do |parser|
       exit
     end
     f = v
+    t = File.read f
   end
 
   parser.on("-o", "--output PATH", "Specify a file to export the result of the encryption or decryption to") do |v|
@@ -69,7 +70,6 @@ def check_key k, a
   true
 end
 
-t = File.read f if f
 t_display = f ? f : t
 
 e = m == :encrypt
