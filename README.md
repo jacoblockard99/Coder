@@ -13,7 +13,7 @@ If an option accepts a value, type it immediately after the flag.
 ## Options
 If you would like to view a help message pass the `--help` or `-h` flag to the app: `coder -h`.
 
-To determine whether the app will _encrypt_ or _decrypt_ the text, use either the `--encrypt` or `--decrypt` flag.
+To determine whether the app will _encrypt_ or _decrypt_ the text, use either the `--encrypt` or `--decrypt` flag. The default is encrypt.
 
 To enable strict mode, (see above) pass the `--strict` flag. The app will use relaxed mode by default.
 
