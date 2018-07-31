@@ -16,12 +16,11 @@ class String
   end
 end
 
-options = {
-  method: :encrypt,
-  text: "example text",
-  strict: false,
-  key: "examplekey"
-}
+m = :encrypt # method - encrypt or decrypt
+s = false # strict? - true or false
+t = "example text" # text - string
+k = "examplekey" # key - string
+f, o = nil # file input and output - strings
 
 OptionParser.new do |parser|
   parser.banner = "Usage: coder [options]"
@@ -35,19 +34,19 @@ OptionParser.new do |parser|
   end
 
   parser.on("-d", "--decrypt", "Decrypts text") do
-    options[:method] = :decrypt
+    m = :decrypt
   end
   
   parser.on("-t", "--text TEXT", "The text to encrypt or decrypt") do |v|
-    options[:text] = v
+    t = v
   end
 
   parser.on("-k", "--key KEY", "Specify a key to use") do |v|
-    options[:key] = v
+    k = v
   end
 
   parser.on("-s", "--strict", "Keeps capital letters and encrypts punctuation") do
-    options[:strict] = true
+    s = true
   end
   
   parser.on("-f", "--file PATH", "Encrypt or decrypt a file instead") do |v|
@@ -55,11 +54,11 @@ OptionParser.new do |parser|
       puts "The path you entered does not exist or is not a file."
       exit
     end
-    options[:file] = v
+    f = v
   end
 
   parser.on("-o", "--output PATH", "Specify a file to export the result of the encryption or decryption to") do |v|
-    options[:output] = v
+    o = v
   end
 end.parse!
 
@@ -70,15 +69,10 @@ def check_key k, a
   true
 end
 
-o = options[:output]
-f = options[:file]
-t = options[:text]
 t = File.read f if f
 t_display = f ? f : t
 
-k = options[:key]
-e = options[:method] == :encrypt
-s = options[:strict]
+e = m == :encrypt
 a = s ? STRICT_ALPHABET : ALPHABET
 
 unless check_key k, a
