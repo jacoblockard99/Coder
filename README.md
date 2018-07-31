@@ -7,7 +7,7 @@ To install the application, please download the RPM or DEB file from the Release
 ## Usage
 Commands are given in the following form:
 ```
-coder OPTIONS
+coder [--option-name] [option-value]
 ```
 If an option accepts a value, type it immediately after the flag.
 ## Options
