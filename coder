@@ -93,8 +93,8 @@ e_text = t.encrypt k, a, s, !e
 display_e_text = o ? o : e_text
 
 if display_e_text.length + t_display.length < 50
-  t.clean_newlines
-  e_text.clean_newlines
+  t_display.clean_newlines
+  display_e_text.clean_newlines
   line = "-" * (t_display.length+2) + "=" * (display_e_text.length+1)
   puts line
   puts "#{t_display} ➜ #{display_e_text}"
